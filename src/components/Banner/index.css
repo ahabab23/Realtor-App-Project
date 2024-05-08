@@ -1,0 +1,48 @@
+/* Banner.css */
+.banner-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.banner-image {
+  width: 500px;
+  height: 300px;
+}
+
+.banner-content {
+  padding: 5px;
+}
+
+.banner-purpose {
+  color: gray;
+  font-size: 14px;
+  font-weight: medium;
+}
+
+.banner-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.banner-description {
+  font-size: 18px;
+  color: gray;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.banner-button {
+  font-size: 24px;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.banner-button:hover {
+  background-color: darkblue;
+}
