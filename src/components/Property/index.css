@@ -1,0 +1,11 @@
+.property {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 420px;
+  padding: 5px;
+  padding-top: 0;
+  justify-content: flex-start;
+  cursor: pointer;
+  align-items: center;
+}
