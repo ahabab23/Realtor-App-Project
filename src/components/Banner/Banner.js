@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 function Banner({
   purpose,
@@ -26,9 +27,9 @@ function Banner({
           <br />
           {desc2}
         </p>
-        <a href={linkName} className="banner-button">
+        <Link to={linkName} className="banner-button">
           {buttonText}
-        </a>
+        </Link>
       </div>
     </div>
   );
