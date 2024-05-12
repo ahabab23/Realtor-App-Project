@@ -1,0 +1,96 @@
+.property-details-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.property-details-image-container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.property-details-info-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.property-details-short-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.property-details-verified {
+  font-size: 24px;
+  color: green;
+}
+
+.property-details-price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.property-details-agency {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.property-details-features {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.property-details-title {
+  margin-bottom: 20px;
+}
+
+.property-details-title-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.property-details-description {
+  margin-bottom: 20px;
+}
+
+.property-details-filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.property-details-filter {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.property-details-filter-name {
+  font-weight: bold;
+}
+
+.property-details-amenities {
+  margin-bottom: 20px;
+}
+
+.property-details-amenities-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.property-details-amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.property-details-amenity {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
