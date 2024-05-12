@@ -1,0 +1,52 @@
+.image-scrollbar {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-menu {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.image-container {
+  scroll-snap-align: start;
+}
+
+.property-image {
+  width: 910px;
+  height: auto;
+  margin-right: 10px;
+  scroll-snap-stop: always;
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
