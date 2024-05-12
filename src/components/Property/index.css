@@ -2,24 +2,24 @@ body {
   margin: auto;
   text-align: center;
 }
+
 .property-link {
   text-decoration: none;
+  width: 100%;
 }
 
 .property-container {
   display: inline-block;
-  margin: 0 30rem;
-
+  margin: 1rem auto;
   border-radius: 10px;
   padding: 1rem;
   background-color: #fff;
-  margin: 1rem auto; /* Center property containers horizontally */
+  width: 30%;
 }
 
 .property-image {
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .property-image img {
@@ -54,7 +54,6 @@ body {
   height: 30px;
   padding: 10px;
   border-radius: 50%;
-  background-color: #ccc; /* Set your desired background color */
   overflow: hidden; /* Hide any overflow content */
 }
 
