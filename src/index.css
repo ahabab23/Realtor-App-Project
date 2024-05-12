@@ -18,3 +18,10 @@ code {
   text-align: center;
   margin: 5rem;
 }
+body {
+  width: 100%;
+}
+.property {
+  margin: auto;
+  width: 100%;
+}
