@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import Search from "./Search";
+import PropertyDetails from "./Property/[id]";
+import Property from "./components/Property/Property";
+
+// import Navbar from "./components/Navbar/Navbar";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +15,16 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/navbar",
-    element: <Navbar />,
+    path: "/search",
+    element: <Search />,
+  },
+  {
+    path: "/property/:id",
+    element: <PropertyDetails />,
+  },
+  {
+    path: "/property",
+    element: <Property />,
   },
 ]);
 
