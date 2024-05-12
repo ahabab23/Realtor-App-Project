@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
@@ -21,7 +22,7 @@ const Property = ({
     externalID,
   },
 }) => (
-  <a href={`/property/${externalID}`} className="property-link">
+  <Link to={`/property/${externalID}`} className="property-link">
     <div className="property-container">
       <div className="property-image">
         <img
@@ -61,7 +62,7 @@ const Property = ({
         </div>
       </div>
     </div>
-  </a>
+  </Link>
 );
 
 export default Property;
