@@ -22,7 +22,7 @@ The Realtor App is a web-based platform designed to streamline the process of bu
 
 ## Preview
 
-[Link to Preview](#) <!-- Add a link to a preview of your project here -->
+![alt text](image.png)<!-- Add a link to a preview of your project here -->
 
 ## Features
 
