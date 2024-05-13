@@ -1,40 +1,62 @@
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import filterModule from "../../FilterData";
-const { filterData, getFilterValues } = filterModule;
+import React, { useState, useEffect } from "react";
+import { fetchApi, baseUrl } from "../../fetchApi";
+import { filterData, getFilterValues } from "../../FilterData";
+import { MdCancel } from "react-icons/md";
+
 const SearchFilters = () => {
-  const [filters] = useState(filterData);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [filters, setFilters] = useState(filterData);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [locationData, setLocationData] = useState([]);
+  const [showLocations, setShowLocations] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const searchProperties = (filterValues) => {
-    const path = location.pathname;
-    const search = location.search ?? "";
-    const query = new URLSearchParams(search);
-
     const values = getFilterValues(filterValues);
-
-    values.forEach((item) => {
-      if (item.value && filterValues?.[item.name]) {
-        query.set(item.name, item.value);
-      }
-    });
-
-    navigate({ pathname: path, search: query.toString() });
+    // update the query parameter with the selected filter values
   };
 
+  const handleFilterChange = (filterName, value) => {
+    searchProperties({ [filterName]: value });
+  };
+
+  const handleSearchTermChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleShowLocations = () => {
+    setShowLocations(!showLocations);
+  };
+
+  const fetchData = async () => {
+    if (searchTerm !== "") {
+      setLoading(true);
+      const response = await fetchApi(`${baseUrl}/auto-complete`, {
+        params: {
+          query: searchTerm,
+        },
+      });
+      const data = await response.json();
+      setLocationData(data.hits);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [searchTerm]);
+
   return (
-    <div className="search-filters-container">
+    <div className="search-filters">
       {filters.map((filter) => (
-        <div key={filter.queryName} className="search-filter">
+        <div key={filter.queryName}>
           <select
-            placeholder={filter.placeholder}
-            className="search-filter-select"
+            className="filter-select"
             onChange={(e) =>
-              searchProperties({ [filter.queryName]: e.target.value })
+              handleFilterChange(filter.queryName, e.target.value)
             }
           >
-            {filter?.items?.map((item) => (
+            <option value="">{filter.placeholder}</option>
+            {filter.items.map((item) => (
               <option value={item.value} key={item.value}>
                 {item.name}
               </option>
@@ -42,6 +64,58 @@ const SearchFilters = () => {
           </select>
         </div>
       ))}
+
+      <div className="location-search">
+        <button className="location-button" onClick={handleShowLocations}>
+          Search Location
+        </button>
+
+        {showLocations && (
+          <div className="location-input-container">
+            <input
+              className="location-input"
+              value={searchTerm}
+              placeholder="Type Here"
+              onChange={handleSearchTermChange}
+            />
+
+            {searchTerm !== "" && (
+              <span className="cancel-icon" onClick={() => setSearchTerm("")}>
+                <MdCancel />
+              </span>
+            )}
+
+            {loading && <div className="spinner">Loading...</div>}
+
+            {locationData.length > 0 && (
+              <div className="location-results">
+                {locationData.map((location) => (
+                  <div
+                    className="location-result"
+                    key={location.id}
+                    onClick={() => {
+                      searchProperties({
+                        locationExternalIDs: location.externalID,
+                      });
+                      setShowLocations(false);
+                      setSearchTerm(location.name);
+                    }}
+                  >
+                    <div className="location-name">{location.name}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {!loading && locationData.length === 0 && (
+              <div className="no-results">
+                <img src="noresult.svg" alt="no result" />
+                <div className="no-results-text">Waiting to search!</div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

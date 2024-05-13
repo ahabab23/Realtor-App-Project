@@ -4,6 +4,7 @@ import { baseUrl, fetchApi } from "./fetchApi";
 import Property from "./components/Property/Property";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
+import noresult from "./Images/noresult.svg";
 import "./index.css";
 function App({
   propertiesForSale: propsForSale,
@@ -49,7 +50,10 @@ function App({
         imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
       />
       {loading ? (
-        <h1 className="propertyHeader">LOADING...</h1> // Display "Loading..." while properties are loading
+        <div className="search-no-results">
+          <img alt="no result" src={noresult} />
+          <div className="search-no-results-text">Loading...</div>
+        </div> // Display "Loading..." while properties are loading
       ) : (
         <div className="property">
           {propertiesForRent.map((property) => (
@@ -69,7 +73,10 @@ function App({
         imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008"
       />
       {loading ? (
-        <h1 className="propertyHeader">LOADING...</h1>
+        <div className="search-no-results">
+          <img alt="no result" src={noresult} />
+          <div className="search-no-results-text">Loading...</div>
+        </div>
       ) : (
         <div className="property">
           {propertiesForSale.map((property) => (

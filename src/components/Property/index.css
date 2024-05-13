@@ -6,6 +6,8 @@ body {
 .property-link {
   text-decoration: none;
   width: 100%;
+  color: #76b5c5;
+  font-weight: bold;
 }
 
 .property-container {
@@ -15,6 +17,7 @@ body {
   padding: 1rem;
   background-color: #fff;
   width: 30%;
+  overflow: hidden;
 }
 
 .property-image {
@@ -67,8 +70,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: blue;
-  font-size: 16px;
+  color: #76b5c5;
+  font-size: 20spx;
 }
 
 .property-title {

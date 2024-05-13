@@ -11,6 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+html {
+  width: 100%;
+}
 .propertyHeader {
   font-size: 5rem;
   color: brown;
@@ -20,8 +23,8 @@ code {
 }
 body {
   width: 100%;
+  box-sizing: border-box;
 }
 .property {
   margin: auto;
-  width: 100%;
 }
